@@ -54,14 +54,11 @@ class DecoderGUIInput:
 
 
 # Returns output to GUI
-class DecoderGUIOutput:
-
-    @staticmethod
-    def displayResult(resultInput):
-        root_out = Tk()
-        root_out.geometry("400x50")
-        root_out.title("Pilot Decoder Output")
-        text = Text(root_out)
-        text.pack()
-        text.insert(END, resultInput)
-        root_out.mainloop()
+def display_result(result_input):
+    root_out = Tk()
+    root_out.geometry("400x50")
+    root_out.title("ProofPoint Decoder Output")
+    text = Text(root_out)
+    text.pack()
+    text.insert(END, result_input)
+    root_out.mainloop()
