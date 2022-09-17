@@ -5,6 +5,11 @@ import tkinter as tk
 from tkinter import Tk, Text, END
 from typing import Optional
 
+# Local App imports
+from resources.utils import create_logger, error_handler
+
+logger = create_logger()
+
 
 class DecoderGUIInput:
     """Action-oriented class containing the Geometry and input fields for Tkinter GUI"""
@@ -30,29 +35,34 @@ class DecoderGUIInput:
         self.result: str = ""  # this is the actual text that is being provided by the user
 
     # Event listeners for user text entry
+    @error_handler
     def _on_entry_click(self, event: Optional[tk.Event]) -> None:
         """
         Method that handles the greyed out text once a user clicks into the input field.
         :param event: (required) This event listener param is needed due to the Tkinter program logic
         :return: None
         """
+        logger.info("[!] User clicks on the GUI")
         if self.entry.get() == 'Paste encoded URL and press <ENTER>...':
             self.entry.delete(0, "end")  # delete all the text in the entry
         self.entry.insert(0, '')  # Insert blank for user input
         self.entry.config(fg='black')
 
     # Event listeners for user text entry
+    @error_handler
     def _on_focusout(self, event: Optional[tk.Event]) -> None:
         """
         Method that handles the greyed out text once a user clicks out of the input field.
         :param event: (required) This event listener param is needed due to the Tkinter program logic
         :return: None
         """
+        logger.info("[!] User clicks off the GUI")
         if self.entry.get() == '':
             self.entry.insert(0, 'Paste encoded URL and press <ENTER>...')
             self.entry.config(fg='grey')
 
     # Event listeners for user text entry
+    @error_handler
     def _callback(self, event: Optional[tk.Event]) -> None:
         """
         Method that takes the inputted text from user and destroys the running GUI process.
@@ -62,6 +72,7 @@ class DecoderGUIInput:
         self.result = self.entry.get()
         self.root.destroy()
 
+    @error_handler
     def binding(self) -> str:
         """
         Method that binds the individual methods to the event listeners and makes GUI actions
@@ -75,6 +86,7 @@ class DecoderGUIInput:
         return self.result
 
 
+@error_handler
 def display_result(result_input) -> None:
     """
     Function that takes in a 'decoded' string value (e.g., URL)
@@ -82,6 +94,7 @@ def display_result(result_input) -> None:
     :param result_input: String value containing the 'decoded' data from the user
     :return: None
     """
+    logger.info("[!] Generating output GUI")
     root_out = Tk()  # instantiate the TK object
     root_out.geometry("400x50")  # set the output GUI geometry size
     root_out.title("ProofPoint Decoder Output")  # give it a title
