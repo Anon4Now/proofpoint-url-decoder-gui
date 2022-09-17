@@ -42,7 +42,7 @@ class DecoderGUIInput:
         :param event: (required) This event listener param is needed due to the Tkinter program logic
         :return: None
         """
-        logger.info("[!] User clicks on the GUI")
+        logger.info("[!] User clicks into the input field on the GUI")
         if self.entry.get() == 'Paste encoded URL and press <ENTER>...':
             self.entry.delete(0, "end")  # delete all the text in the entry
         self.entry.insert(0, '')  # Insert blank for user input
@@ -56,7 +56,7 @@ class DecoderGUIInput:
         :param event: (required) This event listener param is needed due to the Tkinter program logic
         :return: None
         """
-        logger.info("[!] User clicks off the GUI")
+        logger.info("[!] User clicks off the input field on the GUI")
         if self.entry.get() == '':
             self.entry.insert(0, 'Paste encoded URL and press <ENTER>...')
             self.entry.config(fg='grey')
@@ -78,6 +78,7 @@ class DecoderGUIInput:
         Method that binds the individual methods to the event listeners and makes GUI actions
         :return: String containing the input field entry from user
         """
+        logger.info("[!] Started the binding, waiting to for user interaction")
         self.entry.insert(0, 'Paste encoded URL and press <ENTER>...')
         self.entry.bind('<FocusIn>', self._on_entry_click)
         self.entry.bind('<FocusOut>', self._on_focusout)
