@@ -14,7 +14,6 @@ if __name__ == '__main__':
 
     # Start the tkinter GUI
     result = decoderInput.binding()
-    logger.info("[!] Started the binding, waiting to for user interaction")
 
     # Attempt to decode the users input/display output
     try:
@@ -22,4 +21,5 @@ if __name__ == '__main__':
         logger.info("[!] Returned result from decoder class")
         display_result(output)
     except ValueError as e:
+        logger.error("%s", e)
         display_result(e)
