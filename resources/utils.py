@@ -5,7 +5,7 @@ import logging
 import json
 
 #####################################
-# Create logger func
+# Get Config Data
 #####################################
 with open('config.json', 'rb') as f:
     data = json.load(f)
