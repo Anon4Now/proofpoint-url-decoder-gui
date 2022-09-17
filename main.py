@@ -1,10 +1,9 @@
 from url_decoder import URLDefenseDecoder
-from tkinter_gui import DecoderGUIInput, DecoderGUIOutput
+from tkinter_gui import DecoderGUIInput, display_result
 
 if __name__ == '__main__':
     # Instantiate Objects
     decoderInput = DecoderGUIInput()
-    decoderOutput = DecoderGUIOutput()
     defenseDecoder = URLDefenseDecoder()
 
     # Start the tkinter GUI
@@ -13,6 +12,6 @@ if __name__ == '__main__':
     # Attempt to decode the users input/display output
     try:
         output = defenseDecoder.decode(result)
-        decoderOutput.displayResult(output)
+        display_result(output)
     except ValueError as e:
-        decoderOutput.displayResult(e)
+        display_result(e)
