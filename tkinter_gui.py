@@ -1,8 +1,8 @@
 """Module containing tkinter GUI geometry and input"""
 
-
+# Standard Library imports
 import tkinter as tk
-from tkinter import *
+from tkinter import Tk, Text, END
 
 
 class DecoderGUIInput:
