@@ -4,16 +4,6 @@
 import logging
 import json
 
-#####################################
-# Get Environment Variables & Configs
-#####################################
-
-# Config File Vars
-with open("config.json", 'r') as f:
-    data = json.load(f)
-
-file_exts = data['file_types']
-
 
 #####################################
 # Create logger func
@@ -23,12 +13,19 @@ def create_logger() -> logging:
     Create a logger
     :return: logger
     """
-    logging.basicConfig(level=logging.INFO, format='%(asctime)s: %(levelname)s: %(message)s')
+    # Creating and Configuring Logger
+    Log_Format = "%(levelname)s %(asctime)s - %(message)s"
+
+    logging.basicConfig(filename="logfile.log",
+                        filemode="w",
+                        format=Log_Format,
+                        level=logging.ERROR)
+
     log = logging.getLogger()
     return log
 
 
-logger = create_logger()  # create logger func
+logger = create_logger()
 
 
 ###########################
