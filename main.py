@@ -1,3 +1,6 @@
+"""Module containing the main script content"""
+
+# Local App imports
 from url_decoder import URLDefenseDecoder
 from tkinter_gui import DecoderGUIInput, display_result
 
