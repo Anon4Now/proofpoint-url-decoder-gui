@@ -1,20 +1,13 @@
-import sys
+"""Module containing the ProofPoint authored class that parses rewritten URLs"""
+
+# Standard Library imports
 import re
 import string
 from base64 import urlsafe_b64decode
+from urllib.parse import unquote
+from html import unescape
 
-if sys.version_info[0] < 3:
-    from urllib import unquote
-    import HTMLParser
-
-    htmlparser = HTMLParser.HTMLParser()
-    unescape = htmlparser.unescape
-    from string import maketrans
-else:
-    from urllib.parse import unquote
-    from html import unescape
-
-    maketrans = str.maketrans
+maketrans = str.maketrans
 
 
 # ------------------------------------------------------------------------------

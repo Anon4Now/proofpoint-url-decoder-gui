@@ -1,10 +1,15 @@
-from url_decoder import URLDefenseDecoder
-from tkinter_gui import DecoderGUIInput, DecoderGUIOutput
+"""Module containing the main script content"""
+
+# Local App imports
+from resources.url_decoder import URLDefenseDecoder
+from resources.tkinter_gui import DecoderGUIInput, display_result
+from resources.utils import create_logger
+
+logger = create_logger()
 
 if __name__ == '__main__':
     # Instantiate Objects
     decoderInput = DecoderGUIInput()
-    decoderOutput = DecoderGUIOutput()
     defenseDecoder = URLDefenseDecoder()
 
     # Start the tkinter GUI
@@ -13,6 +18,8 @@ if __name__ == '__main__':
     # Attempt to decode the users input/display output
     try:
         output = defenseDecoder.decode(result)
-        decoderOutput.displayResult(output)
+        logger.info("[!] Returned result from decoder class")
+        display_result(output)
     except ValueError as e:
-        decoderOutput.displayResult(e)
+        logger.error("%s", e)
+        display_result(e)
