@@ -18,7 +18,7 @@ def create_logger() -> logging:
     logging.basicConfig(filename="logfile.log",
                         filemode="w",
                         format=Log_Format,
-                        level=logging.ERROR)
+                        level=logging.INFO)
 
     log = logging.getLogger()
     return log
