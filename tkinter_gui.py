@@ -1,3 +1,6 @@
+"""Module containing tkinter GUI geometry and input"""
+
+
 import tkinter as tk
 from tkinter import *
 
