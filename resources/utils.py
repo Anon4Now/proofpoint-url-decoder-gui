@@ -2,6 +2,13 @@
 
 # Standard Library imports
 import logging
+import json
+
+#####################################
+# Create logger func
+#####################################
+with open('config.json', 'rb') as f:
+    data = json.load(f)
 
 
 #####################################
@@ -12,20 +19,27 @@ def create_logger() -> logging:
     Create a logger
     :return: logger
     """
+
+    log_level = {
+        "INFO": logging.INFO,
+        "WARNING": logging.WARNING,
+        "DEBUG": logging.DEBUG,
+        "ERROR": logging.ERROR
+    }
+
     # Creating and Configuring Logger
     Log_Format = "%(levelname)s %(asctime)s - %(message)s"
 
     logging.basicConfig(filename="logfile.log",
                         filemode="w",
                         format=Log_Format,
-                        level=logging.INFO)
+                        level=log_level[data['log_level']])
 
     log = logging.getLogger()
     return log
 
 
 logger = create_logger()
-
 
 ###########################
 # Custom Error Handler func
