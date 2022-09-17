@@ -1,8 +1,8 @@
 """Module containing the main script content"""
 
 # Local App imports
-from url_decoder import URLDefenseDecoder
-from tkinter_gui import DecoderGUIInput, display_result
+from resources.url_decoder import URLDefenseDecoder
+from resources.tkinter_gui import DecoderGUIInput, display_result
 
 if __name__ == '__main__':
     # Instantiate Objects
