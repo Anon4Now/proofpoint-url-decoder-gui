@@ -32,6 +32,23 @@ __status__ = 'Production'
 - This should work on Linux, OSX, or Windows OS's
 - I have provided a couple of encoded URL examples that can be tested in the 'example_encoded_urls.txt' file
 
+## Resource Path:
+```
+rootdir:.
+│   .gitignore
+│   config.json
+│   example_encoded_urls.txt
+│   main.py
+│   README.md
+│
+├───resources
+│   │   tkinter_gui.py
+│   │   url_decoder.py
+│   │   utils.py
+│   │   __init__.py
+│
+```
+
 ## Using the Tool:
 
 #### Step 1:
