@@ -67,3 +67,5 @@ Either copy/paste or manually define the encoded URL.
 Review the output from the GUI.
 
 ![decoded_url_output](https://user-images.githubusercontent.com/80045938/149630021-31bc62fc-ba06-4391-a8e9-b864680070c9.jpg)
+
+#blueteam
